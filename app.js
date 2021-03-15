@@ -63,3 +63,21 @@ app.get("/dashboard", (req,res) =>{
     res.render("dashboard")
 })
 
+app.post("/register",(req,res)=>{ 
+    User.register(new User({            //passport-local-mongoose function to register a new user
+    	username: req.body.username,
+    	phone:req.body.phone,
+    	}),
+    	req.body.password,function(err,user){
+        if(err){
+            console.log(err);
+        }
+        passport.authenticate("local")(req,res,function(){ // authenticate the local session and redirect to login page
+            console.log(req);
+            res.redirect("/login");
+        })    
+    })
+
+});
+
+
