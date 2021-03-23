@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head></head>
-   <body>
+   <body>`
       <div class="bg-light">
       <nav class=" container navbar navbar-light ">
          <ul class="nav justify-content-end">
@@ -11,28 +11,48 @@
             <li class="nav-item">
                <a class="nav-link" href="/register">Register</a>
             </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
          </ul>
       </nav>
       </div>
       <div class="container p-3">
          <div class="row">
             <div class="col">
-               <h1> Welcome to my App</h1>
+               <h1>Welcome to my App</h1>
+               {% if user %}
+               <p>You are logged in as {{user.username |e}}!</p>
+               {% endif %}
             </div>
          </div>
       </div>
-      <div class="container">
-         <div class="row">
-            <div class="col">
-               <div class="card" style="width: 18rem;">
-                  <div class="card-body">
-                     <h5 class="card-title">Title</h5>
-                     <p class="card-text">Some content</p>
+
+
+
+      <div class=" container all_posts mt-2">
+         <h3 class="text-center">Latest Updates</h3>
+         {% for post in allpost %}
+         <div class="row row-cols-1 row-cols-md-3 g-4">
+             <div class="col">
+                <div class="card mt-2" style="width: 18rem;">
+                 <img src="{{post.image |e}}" class="card-img-top" alt="">
+                 <div class="card-body">
+                   <h5 class="card-title">{{post.title |e}}</h5>
+                   <p class="card-text">{{post.content |e}}</p>
+                 </div>
+                 <div class="card-footer text-muted">
+                     {{post.author |e}}
+                   </div>
+                   <div class="">
+                   <a href="/delete/{{post._id}}" class="btn btn-danger">delete</a>
+                   <a href="/edit/{{post._id}}"  class="btn btn-warning"> edit</a>
                   </div>
                </div>
-            </div>
+             </div>
          </div>
-      </div>
+             {% endfor %}
+     </div>
 
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

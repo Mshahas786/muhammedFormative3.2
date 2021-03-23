@@ -2,7 +2,8 @@
 <html>
    <head></head>
    <body>
-      <nav class="navbar navbar-light bg-light">
+      <div class=" bg-light">
+      <nav class=" container navbar navbar-light">
          <ul class="nav justify-content-end">
             <li class="nav-item">
                <a class="nav-link" href="/home">Home</a>
@@ -12,6 +13,7 @@
             </li>
          </ul>
       </nav>
+   </div>
       <div class="container p-3">
          <div class="row">
             <div class="col">
@@ -22,10 +24,48 @@
       <div class="container">
          <div class="row">
             <div class="col">
-               <p>Hello and welcome</p>
+               <p>Hello and welcome {{ user.username |e}}!</p>
+               <p>Your phone number {{ user.phone |e}}</p>
             </div>
          </div>
       </div>
+
+
+      <div class="card container mt-2">
+         <h1 class="text-center">Comment App</h1>
+ 
+ 
+         <form action="" method="POST" class="container">
+             <div class=" mb-3">
+                 <label class="form-label" for="post_title">Comment Title</label>
+                 <input class="form-control" type="text" name="title" placeholder="Enter post title" id="post_title"
+                     required>
+             </div>
+             <div class=" mb-3">
+                 <label class="form-label" for="post_content">Write your comment</label>
+                 <input class="form-control" name="content" id="hmhcontent" placeholder="Write something..." required>
+             </div>
+             <div class=" mb-3">
+                 <label class="form-label" for="author_name">Author Name</label>
+                 <input class="form-control" type="text" name="author" placeholder="Enter author name" id="author_name"
+                     required>
+             </div>
+ 
+             <div class=" mb-3">
+                 <label class="form-label" for="author_image">Author image</label>
+                 <input class="form-control" type="text" name="image" placeholder="Enter author image url" id="author_image"
+                     required>
+             </div>
+ 
+             <button type="submit" value="POST" class="btn btn-success"> Post</button>
+ 
+ 
+         </form>
+ 
+ 
+     </div>
+
+     
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <!-- jQuery library -->

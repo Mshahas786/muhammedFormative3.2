@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="container">
+        <h1>Edit Post</h1>
+        <div class="insert_post">
+            <form action="" method="POST">
+                <label for="post_title">Comment Title</label>
+                <input type="text" name="title" placeholder="Enter post title" value="{{post.title | e}}" id="post_title" required>
+                <label for="post_content">Write your comment</label>
+                <textarea name="content" id="post_content" placeholder="Write something..." required>{{post.content | e}}</textarea>
+                <label for="author_name">Author Name</label>
+                <input type="text" name="author" placeholder="Enter author name" id="author_name" value="{{post.author_name | e}}" required>
+                <input type="submit" value="POST">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
