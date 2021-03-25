@@ -51,9 +51,9 @@ app.listen(port, function (err) {
 });
 
 
-// app.get("/home", (req, res) => {
-//     res.render("/dashboard", { user: req.user })
-// })
+app.get("/home", (req, res) => {
+    res.render("/dashboard", { user: req.user })
+})
 
 app.get("/login", (req, res) => {
     res.render("login")
